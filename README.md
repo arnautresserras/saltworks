@@ -28,14 +28,10 @@ python -m http.server 8000   # then open http://localhost:8000
 ## Download links
 
 The download buttons in `index.html` point at the **latest release** of the game repo
-(`arnautresserras/saltworks`), using stable asset names produced by that repo's
+
 `release.yml` workflow:
 
 - `SaltWorks-Windows.zip`
 - `SaltWorks-macOS.zip`
 
 If you rename the game repo or its release assets, update the hrefs in `index.html`.
-
-## Screenshots
-
-Drop a PNG in `assets/` and replace the `.shot` placeholder block in `index.html`.
