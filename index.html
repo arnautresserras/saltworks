@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaltWorks — automation puzzles in a potash mine</title>
+  <meta name="description" content="SaltWorks — an automation puzzle game set in a potash mine. Engineer extraction, haulage, and processing on a two-level grid before the galleries close in." />
+  <meta property="og:title" content="SaltWorks" />
+  <meta property="og:description" content="Automation puzzle game set in a potash mine. Route the ore before the mine closes in on you." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- =============================== NOTE ===============================
+       Download buttons point at the LATEST release of the game repo, using
+       stable asset filenames produced by .github/workflows/release.yml
+       (SaltWorks-Windows.zip / SaltWorks-macOS.zip). If you rename the repo
+       or the assets, update the four hrefs below.
+  ==================================================================== -->
+  <header class="topbar">
+    <div class="wrap">
+      <span class="brand">SALT<span class="dot">·</span>WORKS</span>
+      <nav class="navlinks">
+        <a href="#download">Download</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/arnautresserras/saltworks" target="_blank" rel="noopener">Source</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="kicker"><span class="num">00</span>Automation puzzle · Godot</p>
+        <h1>Route the ore before<br />the mine closes in.</h1>
+        <p class="tagline">
+          <strong class="accent">SaltWorks</strong> is an automation puzzle game set in a
+          potash mine. Engineer extraction, haulage, and processing across a two-level grid —
+          while self-closing galleries decay your layout, one fuse at a time.
+        </p>
+        <div class="btn-row" id="download">
+          <a class="btn btn-primary"
+             href="https://github.com/arnautresserras/saltworks/releases/latest/download/SaltWorks-Windows.zip">
+            Download <span class="os">· Windows</span>
+          </a>
+          <a class="btn"
+             href="https://github.com/arnautresserras/saltworks/releases/latest/download/SaltWorks-macOS.zip">
+            Download <span class="os">· macOS</span>
+          </a>
+          <a class="btn"
+             href="https://github.com/arnautresserras/saltworks/releases/latest">
+            All releases
+          </a>
+        </div>
+        <p class="btn-note">
+          macOS builds are unsigned — right-click the app &rarr; Open the first time to bypass Gatekeeper.
+        </p>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="about">
+      <div class="wrap">
+        <p class="kicker"><span class="num">01</span>The mechanic</p>
+        <h2>Every cell is on a fuse.</h2>
+        <div class="panels">
+          <div class="panel">
+            <span class="tag">Closure</span>
+            <h3>Nothing is permanent</h3>
+            <p>A cell stays dormant until material first flows through it — then its fuse lights and runs one-way to collapse. Route around your own decay.</p>
+          </div>
+          <div class="panel">
+            <span class="tag">Two layers</span>
+            <h3>Volatile over stable</h3>
+            <p>Mine the volatile production layer, drop ore through author-placed passes to the stable infrastructure below. Plan in three dimensions.</p>
+          </div>
+          <div class="panel">
+            <span class="tag">Bolting</span>
+            <h3>Buy time, pay in time</h3>
+            <p>Rock-bolt a cell to stop it decaying — but installs are serialized by a single crew, so every bolt costs you ticks. Spend them wisely.</p>
+          </div>
+        </div>
+        <div class="chips">
+          <span class="chip"><span class="sw fresh"></span>Fresh</span>
+          <span class="chip"><span class="sw aging"></span>Aging</span>
+          <span class="chip"><span class="sw imminent"></span>Imminent</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshot -->
+    <section>
+      <div class="wrap">
+        <p class="kicker"><span class="num">02</span>The floor</p>
+        <h2>A schematic you can read at a glance.</h2>
+        <div class="shot" style="margin-top:24px;">
+          [ screenshot — drop a PNG here and swap this block ]
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:12px;">
+      <span>SaltWorks · built in Godot 4</span>
+      <span>© <span id="year"></span> Arnau Tresserras</span>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

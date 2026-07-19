@@ -1,0 +1,234 @@
+/* SaltWorks site — tokens mirrored from ui/saltworks_theme.tres (Palette/*).
+   Spatial rhythm follows the game's UIGrid: MAJOR = 40px, SUB = 8px. */
+
+:root {
+  /* Surfaces */
+  --bg:          #0a0d10; /* Palette/bg */
+  --bg-toolbar:  #090d10; /* Palette/bg_toolbar */
+  --cell-base:   #0c1119; /* Palette/cell_base */
+
+  /* Accents */
+  --accent:        #42c0d4; /* Palette/accent */
+  --accent-bright: #5fe0ee; /* Palette/accent_bright */
+
+  /* Lines */
+  --divider:       #1d4850; /* Palette/divider */
+  --divider-dim:   #142e33; /* Palette/divider_dim */
+  --border-button: #2a5a62; /* Palette/border_button */
+
+  /* Text */
+  --text-hi:    #e6edf0; /* Palette/text_hi / ink */
+  --text-body:  #b3c1c4; /* Palette/text_body */
+  --text-prose: #9db0b4; /* Palette/text_prose */
+  --text-mid:   #8fa1a6; /* Palette/text_mid */
+  --text-dim:   #5f7075; /* Palette/text_dim */
+
+  /* Stability (mirror of the field) */
+  --stab-fresh:    #3fc56a; /* Palette/stab_fresh */
+  --stab-aging:    #d0bd2e; /* Palette/stab_aging */
+  --stab-imminent: #e0484d; /* Palette/stab_imminent */
+  --reserve-fill:  #5fd68a; /* Palette/reserve_fill */
+
+  --major: 40px;
+  --sub: 8px;
+
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  /* 40px schematic grid — accent @ 5%, anchored to origin, like GridBackground. */
+  background-image:
+    linear-gradient(to right, rgba(66, 192, 212, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(66, 192, 212, 0.05) 1px, transparent 1px);
+  background-size: var(--major) var(--major);
+  color: var(--text-body);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-bright); }
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- Top bar ---------------------------------------------------------- */
+.topbar {
+  border-bottom: 1px solid var(--divider);
+  background: rgba(9, 13, 16, 0.85);
+  backdrop-filter: blur(4px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.topbar .wrap {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-family: var(--mono);
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 14px;
+  color: var(--text-hi);
+  text-transform: uppercase;
+}
+.brand .dot { color: var(--accent); }
+.navlinks {
+  font-family: var(--mono);
+  font-size: 13px;
+  display: flex;
+  gap: 24px;
+}
+.navlinks a { color: var(--text-mid); }
+.navlinks a:hover { color: var(--accent); }
+
+/* ---- Section scaffolding — the "NN · TITLE" motif from UISection ------ */
+section { padding: 64px 0; }
+.kicker {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+.kicker .num { color: var(--text-dim); margin-right: 8px; }
+h1, h2, h3 { font-family: var(--sans); color: var(--text-hi); margin: 0; }
+
+/* ---- Hero ------------------------------------------------------------- */
+.hero { padding: 96px 0 72px; }
+.hero h1 {
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.hero .tagline {
+  font-size: 19px;
+  color: var(--text-prose);
+  max-width: 620px;
+  margin: 0 0 40px;
+}
+.hero .tagline .accent { color: var(--accent); }
+
+/* ---- Buttons — OutlineButton / PrimaryButton from the theme ---------- */
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 12px 24px;
+  border: 1px solid var(--border-button);
+  background: transparent;
+  color: var(--text-body);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: border-color .12s, color .12s, background .12s;
+}
+.btn:hover { border-color: var(--accent); color: var(--text-hi); }
+.btn .os { color: var(--text-dim); font-weight: 400; }
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+}
+.btn-primary .os { color: rgba(10, 13, 16, 0.6); }
+.btn-primary:hover { background: var(--accent-bright); border-color: var(--accent-bright); color: var(--bg); }
+.btn-note {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 16px;
+}
+
+/* ---- Feature panels — cell_base fills, divider hairlines ------------- */
+.panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+.panel {
+  background: var(--cell-base);
+  border: 1px solid var(--divider);
+  padding: 24px;
+}
+.panel .tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.panel h3 { font-size: 17px; margin: 8px 0; font-weight: 600; }
+.panel p { color: var(--text-mid); font-size: 14px; margin: 0; }
+
+/* Stability legend chips — reuse the field's green/yellow/red. */
+.chips { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+.chip {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-mid);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chip .sw { width: 12px; height: 12px; display: inline-block; }
+.sw.fresh { background: var(--stab-fresh); }
+.sw.aging { background: var(--stab-aging); }
+.sw.imminent { background: var(--stab-imminent); }
+
+/* ---- Screenshot placeholder ----------------------------------------- */
+.shot {
+  border: 1px solid var(--divider);
+  background:
+    repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(66,192,212,0.03) 12px, rgba(66,192,212,0.03) 24px),
+    var(--cell-base);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* ---- Footer --------------------------------------------------------- */
+footer {
+  border-top: 1px solid var(--divider);
+  padding: 32px 0;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 560px) {
+  .hero h1 { font-size: 38px; }
+  .navlinks { display: none; }
+}
